@@ -41,11 +41,12 @@ action_meanings = {
     'a8': "Import goods"
 }
 
+# -------- REALISTIC REWARDS --------
 rewards = {
-    ('s1','a1'):5, ('s1','a2'):2,
-    ('s2','a3'):4, ('s2','a4'):1,
-    ('s3','a5'):5, ('s3','a6'):2,
-    ('s4','a7'):5, ('s4','a8'):3
+    ('s1','a1'):9, ('s1','a2'):5,
+    ('s2','a3'):8, ('s2','a4'):2,
+    ('s3','a5'):9, ('s3','a6'):3,
+    ('s4','a7'):9, ('s4','a8'):6
 }
 
 policy = {
@@ -65,7 +66,6 @@ for s in actions:
 if st.button("🔍 Get AI Decision"):
 
     best_action = max(actions[current_state], key=lambda a: q_pi[(current_state,a)])
-    best_reward = q_pi[(current_state,best_action)]
 
     st.success("### 🤖 AI Recommended Action")
     st.write(action_meanings[best_action])
